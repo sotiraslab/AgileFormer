@@ -78,7 +78,7 @@ class NeighborhoodAttention2D(nn.Module):
             raise ValueError(
                 f"NeighborhoodAttention2D expected a rank-4 input tensor; got {x.dim()=}."
             )
-
+        x = x.permute(0, 2, 3, 1)
         B, H, W, C = x.shape
         # Pad if the input is small than the minimum supported size
         H_padded, W_padded = H, W
@@ -106,7 +106,7 @@ class NeighborhoodAttention2D(nn.Module):
         if padding_h or padding_w:
             x = x[:, :H, :W, :]
 
-        return self.proj_drop(self.proj(x))
+        return self.proj_drop(self.proj(x)).permute(0, 3, 1, 2), None, None
 
     def extra_repr(self) -> str:
         return (

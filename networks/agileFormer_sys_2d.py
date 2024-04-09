@@ -86,7 +86,7 @@ class TransformerStage(nn.Module):
                 )
             elif stage_spec[i] == 'N':
                 self.attns.append(
-                    NeighborhoodAttention2D(dim_embed, heads, nat_ksize, attn_drop=attn_drop, proj_drop=proj_drop, bias=use_pe)
+                    NeighborhoodAttention2D(dim_embed, heads, nat_ksize, attn_drop=attn_drop, proj_drop=proj_drop)
                 )
             else:
                 raise NotImplementedError(f'Spec: {stage_spec[i]} is not supported.')
@@ -177,7 +177,6 @@ class AgileFormerSys2D(nn.Module):
                  layer_scale_values=[-1,-1,-1,-1],
                  use_lpus=[False, False, False, False],
                  log_cpb=[False, False, False, False],
-                 deform_patch_embed=True,
                  encoder_pos_layers=[0, 1, 2],
                  decoder_pos_layers=[1, 2, 3],
                  deep_supervision=False,
@@ -188,15 +187,12 @@ class AgileFormerSys2D(nn.Module):
         self.deep_supervision = deep_supervision
     
         self.patch_proj = nn.Sequential(
-            nn.Conv2d(3, dim_stem // 2, 3, patch_size // 2, 1) if not deform_patch_embed else 
             DeformConv2d(3, dim_stem // 2, 3, patch_size // 2, 1),
             LayerNormProxy(dim_stem // 2),
             nn.GELU(),
-            nn.Conv2d(dim_stem // 2, dim_stem, 3, patch_size // 2, 1) if not deform_patch_embed else 
             DeformConv2d(dim_stem // 2, dim_stem, 3, patch_size // 2, 1),
             LayerNormProxy(dim_stem)
         ) if use_conv_patches else nn.Sequential(
-            nn.Conv2d(3, dim_stem, patch_size, patch_size, 0) if not deform_patch_embed else 
             DeformConv2d(3, dim_stem, patch_size, patch_size, 0),
             LayerNormProxy(dim_stem)
         )

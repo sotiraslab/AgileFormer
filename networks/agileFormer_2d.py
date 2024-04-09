@@ -12,18 +12,10 @@ def load_pretrained(ckpt_path, model):
 
 
 class AgileFormer2D(nn.Module):
-    def __init__(self, config, num_classes, 
-                 deform_patch_embed=True,
-                 encoder_pos_layers=[2, 3],
-                 decoder_pos_layers=[1, 2],
-                 deep_supervision=False):
+    def __init__(self, config, num_classes):
         super().__init__()
 
-        self.agile_former = AgileFormerSys2D(**config.MODEL.Params, num_classes=num_classes, 
-                            deform_patch_embed=deform_patch_embed,
-                            encoder_pos_layers=encoder_pos_layers,
-                            decoder_pos_layers=decoder_pos_layers,
-                            deep_supervision=deep_supervision)
+        self.agile_former = AgileFormerSys2D(**config.MODEL.Params, num_classes=num_classes)
 
     def forward(self, x):
         if x.size()[1] == 1:

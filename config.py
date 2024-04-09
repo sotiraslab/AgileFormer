@@ -48,7 +48,7 @@ _C.MODEL.LABEL_SMOOTHING = 0.1
 
 _C.MODEL.PRETRAINED = None
 
-_C.MODEL.DAT = CN(new_allowed=True)
+_C.MODEL.Params = CN(new_allowed=True)
 # -----------------------------------------------------------------------------
 # Training settings
 # -----------------------------------------------------------------------------
