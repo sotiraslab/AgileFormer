@@ -1,5 +1,5 @@
 # AgileFormer
-This repository contains official implementation for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" \[[Arxiv](https://arxiv.org/abs/2404.00122)\]
+This repository contains official implementation for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" \[[arxiv](https://arxiv.org/abs/2404.00122)\]
 
 ![Method](figures/cover.jpg)
 
