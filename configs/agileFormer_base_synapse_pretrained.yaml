@@ -1,5 +1,5 @@
 MODEL:
-  PRETRAIN_CKPT: "./pretrained_ckpt/Synapse/model_base_w_DS_renamed.pth"
+  PRETRAIN_CKPT: "./pretrained_ckpt/Synapse/model_base_w_DS.pth"
   Params:
     img_size: 224
     patch_size: 4

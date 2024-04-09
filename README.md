@@ -13,6 +13,8 @@ This repository contains official implementation for the paper titled "AgileForm
 - [ACDC cardiac segmentation]
 - [Decathlon brain tumor segmentation]
 
+Put pretrained weights into folder **"data/"** under the main "AgileFormer" directory, e.g., **"data/Synapse"**, **"data/ACDC"**.
+
 ## 2. Environment
 - We recommend an evironment with python >= 3.8, and then install the following dependencies:
 ```
@@ -42,23 +44,28 @@ pip install -r requirements.txt
 
 - **Final Takeaway:** We suggest installing PyTorch >= 2.1, CUDA >= 12.1 for better compatability of all pacakges (especially tvdcn and natten). It is also possible to install those two packages with lower PyTorch and CUDA version, but they may need to be built from source. 
 
-## 3. Evaluate Pretrained Models 
+## 3. Evaluate Pretrained Models [This is ready to run]
 We provide the pretrained models in the tiny and base versions of AgileFormer, as listed below.
 
 | task  | model size | resolution | DSC (%) | config | pretrained weights |
 | :---: | :---: | :---: | :---: | :---: |:---: |
 | Synapse multi-organ | Tiny | 224x224 | 83.59 | [config](configs/agileFormer_lite.yaml) | |
-| Synapse multi-organ | Base | 224x224 | 85.74 | [config](configs/agileFormer_base.yaml) | [GoogleDrive](https://drive.google.com/file/d/1yGPZ2M2zJGhl-FVeQ9dGAYG9G_swNCAC/view?usp=sharing) / [OneDrive](https://gowustl-my.sharepoint.com/:u:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/model_base_w_DS.pth?csf=1&web=1&e=1vAej1) |
+| Synapse multi-organ | Base | 224x224 | 85.74 | [config](configs/agileFormer_base_synapse_pretrained.yaml) | [GoogleDrive](https://drive.google.com/file/d/1yGPZ2M2zJGhl-FVeQ9dGAYG9G_swNCAC/view?usp=sharing) / [OneDrive](https://gowustl-my.sharepoint.com/:u:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/model_base_w_DS.pth?csf=1&web=1&e=1vAej1) |
 | ACDC cardiac | Tiny | 224x224 | 91.76 | [config](configs/agileFormer_lite.yaml) | |
 | ACDC cardiac | Base | 224x224 | 92.55 | [config](configs/agileFormer_base.yaml) | |
 | Decathlon brain tumor | Tiny | 96x96x96 | 85.7 | [config](configs/agileFormer_lite.yaml) | |
 
 Put pretrained weights into folder **"pretrained_ckpt/"** under the main "AgileFormer" directory
+
 ```
-python test.py
+python test.py --cfg [pretrained_config_file in configs]
+```
+For example, for Synapse base model, run the following command:
+```
+python test.py --cfg configs/agileFormer_base_synapse_pretrained.yaml
 ```
 
-## 4. Train From Scratch
+## 4. Train From Scratch [This is needs further debugging]
 
 ### a. Download pre-trained deformable attention weights (DAT++)
 | model  | resolution | pretrained weights |
