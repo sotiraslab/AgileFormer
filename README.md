@@ -23,7 +23,7 @@ pip install -r requirements.txt
     ```
     pip3 install natten==0.15.1+torch220cu121 -f https://shi-labs.com/natten/wheels/
     ```
-    - [Deformable Convolution] There are many implementation of deformable convolution:
+    - [**Deformable Convolution**] There are many implementation of deformable convolution:
         - [**tvdcn**] We recommend the implementation in **tvdcn** (https://github.com/inspiros/tvdcn), as it provides CUDA implementation of both 2D/3D deformable convolution (The 2D implementation of deformable convolution in tvdcn should be the same as that provided by PyTorch) [**Note: We used tvdcn for our experiments**]
         For example, we can install latest tvdcn with Pytorch >= 2.1 and CUDA >= 12.1 with
         ```
