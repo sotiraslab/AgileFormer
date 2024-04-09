@@ -1,25 +1,15 @@
 # AgileFormer
 This official repo for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" (https://arxiv.org/abs/2404.00122)
 
+![Method](figures/network.jpg)
 
-
-## 1. Download pre-trained deformable attention weights (DAT++)
-| model  | resolution | pretrained weights |
-| :---: | :---: | :---: | 
-| Tiny | 224x224 | [OneDrive](https://1drv.ms/u/s!ApI0vb6wPqmtgrl-pI8MPFoll-ueNQ?e=bpdieu) / [TsinghuaCloud](https://cloud.tsinghua.edu.cn/f/14c5ddae10b642e68089/) |
-| Base | 224x224 | [OneDrive](https://1drv.ms/u/s!ApI0vb6wPqmtgrl_P46QOehhgA0-wg?e=DJRAfw) / [TsinghuaCloud](https://cloud.tsinghua.edu.cn/f/8e30492404d348d89f25/) |
-
-If you are interested in more pretrained weights (e.g., with different resolutions, model sizes, and tasks), please check with the official repo in DAT++: (https://github.com/LeapLabTHU/DAT)
-
-Put pretrained weights into folder **"pretrained_ckpt/"** under the main "AgileFormer" directory
-
-## 2. Prepare data
+## 1. Prepare data
 
 - [Synapse multi-organ segmentation] The Synapse datasets we used are provided by TransUnet's authors. [Get processed data in this link] (https://drive.google.com/drive/folders/1ACJEoTp-uqfFJ73qS3eUObQh52nGuzCd). 
 - [ACDC cardiac segmentation]
 - [Decathlon brain tumor segmentation]
 
-## 3. Environment
+## 2. Environment
 - We recommend an evironment with python >= 3.8, and then install the following dependencies:
 ```
 pip install -r requirements.txt
@@ -48,7 +38,7 @@ pip install -r requirements.txt
 
 - **Final Takeaway:** We suggest installing PyTorch >= 2.1, CUDA >= 12.1 for better compatability of all pacakges (especially tvdcn and natten). It is also possible to install those two packages with lower PyTorch and CUDA version, but may need to build from source. 
 
-## 4. Evaluate Pretrained Models 
+## 3. Evaluate Pretrained Models 
 We provide the pretrained models in the tiny and base versions of AgileFormer, as listed below.
 
 | task  | model size | resolution | config | pretrained weights |
@@ -65,4 +55,43 @@ Put pretrained weights into folder **"pretrained_ckpt/"** under the main "AgileF
 python test.py
 ```
 
-## 5. Train from scratch
+## 4. Train From Scratch
+
+### a. Download pre-trained deformable attention weights (DAT++)
+| model  | resolution | pretrained weights |
+| :---: | :---: | :---: | 
+| Tiny | 224x224 | [OneDrive](https://1drv.ms/u/s!ApI0vb6wPqmtgrl-pI8MPFoll-ueNQ?e=bpdieu) / [TsinghuaCloud](https://cloud.tsinghua.edu.cn/f/14c5ddae10b642e68089/) |
+| Base | 224x224 | [OneDrive](https://1drv.ms/u/s!ApI0vb6wPqmtgrl_P46QOehhgA0-wg?e=DJRAfw) / [TsinghuaCloud](https://cloud.tsinghua.edu.cn/f/8e30492404d348d89f25/) |
+
+If you are interested in more pretrained weights (e.g., with different resolutions, model sizes, and tasks), please check with the official repo in DAT++: (https://github.com/LeapLabTHU/DAT)
+
+Put pretrained weights into folder **"pretrained_ckpt/"** under the main "AgileFormer" directory
+
+### b. Run the training script
+```
+python train.py
+```
+
+## Future Updates
+- [x] Release the tentative code for 2D segmentation.
+- [ ] Release the pretrained code for 2D segmentation.
+- [ ] Reorganize the tentative code for easier usage.
+- [ ] Release the code for 3D segmentation.
+- [ ] Release the pretrained code for 3D segmentation.
+- [ ] Support mmcv and pytorch deformable convolution
+
+## Acknowledgements
+
+This code is developed on the top of [Swin UNet](https://github.com/HuCaoFighting/Swin-Unet) and [DAT](https://github.com/LeapLabTHU/DAT), we thank to their efficient and neat codebase. 
+
+## Citation
+If you find our work is useful in your research, please consider citing:
+
+```
+@article{qiu2024agileformer,
+  title={AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation},
+  author={Qiu, Peijie and Yang, Jin and Kumar, Sayantan and Ghosh, Soumyendu Sekhar and Sotiras, Aristeidis},
+  journal={arXiv preprint arXiv:2404.00122},
+  year={2024}
+}
+```
