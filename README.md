@@ -2,7 +2,7 @@
 This official implementation for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" (https://arxiv.org/abs/2404.00122)
 
 ![Method](figures/cover.jpg)
-
+![Method](figures/roadmap.jpg){: style="float: left"}
 **Abstract.** In the past decades, deep neural networks, particularly convolutional neural networks, have achieved state-of-the-art performance in a variety of medical image segmentation tasks. Recently, the introduction of the vision transformer (ViT) has significantly altered the landscape of deep segmentation models. There has been a growing focus on ViTs, driven by their excellent performance and scalability. However, we argue that the current design of the vision transformer-based UNet (ViT-UNet) segmentation models may not effectively handle the heterogeneous appearance (e.g., varying shapes and sizes) of objects of interest in medical image segmentation tasks. To tackle this challenge, we present a structured approach to introduce spatially dynamic components to the ViT-UNet. This adaptation enables the model to effectively capture features of target objects with diverse appearances. This is achieved by three main components: (i) deformable patch embedding; (ii) spatially dynamic multi-head attention; (iii) deformable positional encoding. These components were integrated into a novel architecture, termed AgileFormer. AgileFormer is a spatially agile ViT-UNet designed for medical image segmentation. Experiments in three segmentation tasks using publicly available datasets demonstrated the effectiveness of the proposed method
 
 ## 1. Prepare data
