@@ -88,7 +88,7 @@ python train.py
 This code is developed on the top of [Swin UNet](https://github.com/HuCaoFighting/Swin-Unet) and [DAT](https://github.com/LeapLabTHU/DAT), we thank to their efficient and neat codebase. 
 
 ## Citation
-If you find our work is useful in your research, please consider raising a star (:star:) and citing:
+If you find our work is useful in your research, please consider raising a star  :star:  and citing:
 
 ```
 @article{qiu2024agileformer,
