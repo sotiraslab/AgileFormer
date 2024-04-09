@@ -1,7 +1,7 @@
 # AgileFormer
-This official repo for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" (https://arxiv.org/abs/2404.00122)
+This official implementation for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" (https://arxiv.org/abs/2404.00122)
 
-![Method](figures/network.jpg)
+![Method](figures/cover.jpg)
 
 ## 1. Prepare data
 
