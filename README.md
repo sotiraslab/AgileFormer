@@ -40,7 +40,7 @@ pip install -r requirements.txt
         - [**vanilla PyTorch**] We also provide the implementation provided by official PyTorch
         - **Note:** Our code will search all the aforementioned three options in order: if tvdcn is installed, we will use it; elif mmcv is installed, we will use mmcv; else we will use implementation provided by Pytorch.
 
-- **Final Takeaway:** We suggest installing PyTorch >= 2.1, CUDA >= 12.1 for better compatability of all pacakges (especially tvdcn and natten). It is also possible to install those two packages with lower PyTorch and CUDA version, but may need to build from source. 
+- **Final Takeaway:** We suggest installing PyTorch >= 2.1, CUDA >= 12.1 for better compatability of all pacakges (especially tvdcn and natten). It is also possible to install those two packages with lower PyTorch and CUDA version, but they may need to be built from source. 
 
 ## 3. Evaluate Pretrained Models 
 We provide the pretrained models in the tiny and base versions of AgileFormer, as listed below.
