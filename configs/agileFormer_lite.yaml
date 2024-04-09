@@ -1,0 +1,30 @@
+MODEL:
+  PRETRAIN_CKPT: "./pretrained_ckpt/dat_pp_tiny_in1k_224.pth"
+  Params:
+    img_size: 224
+    patch_size: 4
+    expansion: 4
+    dim_stem: 64
+    dims: [64, 128, 256, 512]
+    depths_Encoder: [2, 4, 10, 2]
+    depths_Decoder: [2, 4, 10, -1]
+    stage_spec: [[N, D], [N, D, N, D], [N, D, N, D, N, D, N, D, N, D], [D, D]]
+    heads: [2, 4, 8, 16]
+    window_sizes: [7, 7, 7, 7]
+    groups: [1, 2, 4, 8]
+    use_pes: [False, False, False, False]
+    dwc_pes: [False, False, False, False]
+    strides: [8, 4, 2, 1]
+    offset_range_factor: [-1, -1, -1, -1]
+    no_offs: [False, False, False, False]
+    fixed_pes: [False, False, False, False]
+    use_dwc_mlps: [True, True, True, True]
+    use_lpus: [True, True, True, True]
+    use_conv_patches: True
+    ksizes: [9, 7, 5, 3]
+    nat_ksizes: [7, 7, 7, 7]
+    drop_rate: 0.0
+    attn_drop_rate: 0.0
+    drop_path_rate: 0.2
+  
+    
