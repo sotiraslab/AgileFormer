@@ -27,7 +27,7 @@ parser.add_argument('--num_classes', type=int,
                     default=9, help='output channel of network')
 parser.add_argument('--output_dir', type=str, help='output dir', default="./trained_models")                   
 parser.add_argument('--max_epochs', type=int,
-                    default=1, help='maximum epoch number to train')
+                    default=300, help='maximum epoch number to train')
 parser.add_argument('--dice_loss_weight', type=float,
                     default=0.6, help='loss balance factor for the dice loss')
 parser.add_argument('--batch_size', type=int,
@@ -60,8 +60,6 @@ args.output_dir = os.path.join(args.output_dir, args.dataset)
 
 if not os.path.exists(args.output_dir):
     os.makedirs(args.output_dir)
-
-args.output_dir = make_dirs_by_time(args.output_dir)
 
 ######### save hyper parameters #########
 option = vars(args) ## args is the argparsing

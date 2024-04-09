@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from .agileFormer_sys_2d import AgileFormerSys2D
 
+
 def load_pretrained(ckpt_path, model):
     checkpoint = torch.load(ckpt_path, map_location='cpu')
     msg = model.load_pretrained(checkpoint['model'])
@@ -10,7 +11,7 @@ def load_pretrained(ckpt_path, model):
     torch.cuda.empty_cache()
 
 
-class DeformUFormer2D(nn.Module):
+class AgileFormer2D(nn.Module):
     def __init__(self, config, num_classes, 
                  deform_patch_embed=True,
                  encoder_pos_layers=[2, 3],
@@ -32,4 +33,4 @@ class DeformUFormer2D(nn.Module):
     
     def load_from(self, config):
         pretrained_path = config.MODEL.PRETRAIN_CKPT
-        load_pretrained(pretrained_path, self.dat_unet)
+        load_pretrained(pretrained_path, self.agile_former)

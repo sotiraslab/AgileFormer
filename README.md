@@ -26,14 +26,27 @@ pip install -r requirements.txt
 ```
 
 - We recommend to install **Neighborhood Attention (NATTEN)** and **Defomrable Convolution** manually for compatability issues:
-    - [NATTEN] Please refer to https://shi-labs.com/natten to install NATTEN with correct CUDA and PyTorch versions (**Note: we trained the model using CUDA 12.1 + PyTorch 2.2, and NATTEN=0.15.1**)
+    - [**NATTEN**] Please refer to https://shi-labs.com/natten to install NATTEN with correct CUDA and PyTorch versions (**Note: we trained the model using CUDA 12.1 + PyTorch 2.2, and NATTEN=0.15.1**). 
+    For example, we can install NATTEN with Pytorch 2.2 and CUDA 12.1 with 
+    ```
+    pip3 install natten==0.15.1+torch220cu121 -f https://shi-labs.com/natten/wheels/
+    ```
     - [Deformable Convolution] There are many implementation of deformable convolution:
-        - [tvdcn] We recommend the implementation in **tvdcn** (https://github.com/inspiros/tvdcn), as it provides CUDA implementation of both 2D/3D deformable convolution (The 2D implementation of deformable convolution in tvdcn should be the same as that provided by PyTorch) [**Note: We used tvdcn for our experiments**]
-        - [mmcv] We also provide an alternative implementaiton of deformable convolution in mmcv (https://github.com/open-mmlab/mmcv). This is the most widely used version; but it only provides 2D CUDA implementation.
-        - [vanilla PyTorch] We also provide the implementation provided by official PyTorch
+        - [**tvdcn**] We recommend the implementation in **tvdcn** (https://github.com/inspiros/tvdcn), as it provides CUDA implementation of both 2D/3D deformable convolution (The 2D implementation of deformable convolution in tvdcn should be the same as that provided by PyTorch) [**Note: We used tvdcn for our experiments**]
+        For example, we can install latest tvdcn with Pytorch >= 2.1 and CUDA >= 12.1 with
+        ```
+        pip install tvdcn
+        ```
+        - [**mmcv**] We also provide an alternative implementaiton of deformable convolution in mmcv (https://github.com/open-mmlab/mmcv). This is the most widely used version; but it only provides 2D CUDA implementation.
+        The installation of mmcv is quite straightforward with (you may need to check PyTorch and CUDA version as well)
+        ```
+        pip install -U openmim 
+        mim install mmcv
+        ```
+        - [**vanilla PyTorch**] We also provide the implementation provided by official PyTorch
         - **Note:** Our code will search all the aforementioned three options in order: if tvdcn is installed, we will use it; elif mmcv is installed, we will use mmcv; else we will use implementation provided by Pytorch.
 
-- **Final Takeaway:** 
+- **Final Takeaway:** We suggest installing PyTorch >= 2.1, CUDA >= 12.1 for better compatability of all pacakges (especially tvdcn and natten). It is also possible to install those two packages with lower PyTorch and CUDA version, but may need to build from source. 
 
 ## 4. Evaluate Pretrained Models 
 We provide the pretrained models in the tiny and base versions of AgileFormer, as listed below.

@@ -48,30 +48,27 @@ class DiceLoss(nn.Module):
             loss += dice * weight[i]
         return loss / self.n_classes
 
-def calculate_metric_percase(pred, gt, hd95=False):
+def calculate_metric_percase(pred, gt):
     pred[pred > 0] = 1
     gt[gt > 0] = 1
     if pred.sum() > 0 and gt.sum()>0:
         dice = metric.binary.dc(pred, gt)
-        if hd95:
-            hd95 = metric.binary.hd95(pred, gt)
-        else:
-            hd95 = 0
+        hd95 = metric.binary.hd95(pred, gt)
         return dice, hd95
     elif pred.sum() > 0 and gt.sum()==0:
         return 1, 0
     else:
         return 0, 0
 
-def calculate_metric_list_percase(pred, gt, classes=9, hd95=False):
+def calculate_metric_list_percase(pred, gt, classes=9):
     metric_list = []
     for i in range(1, classes):
-        metric_list.append(calculate_metric_percase(pred == i, gt == i, hd95=hd95))
+        metric_list.append(calculate_metric_percase(pred == i, gt == i))
     return np.array(metric_list)
 
-def calculate_metric_multicases(preds, gts, classes=9, hd95=False, num_workers=12):
+def calculate_metric_multicases(preds, gts, classes=9, num_workers=12):
     with Pool(num_workers) as p:
-        metrics_list = p.starmap(partial(calculate_metric_list_percase, classes=classes, hd95=hd95), zip(preds, gts))
+        metrics_list = p.starmap(partial(calculate_metric_list_percase, classes=classes), zip(preds, gts))
     metrics_list = np.array(metrics_list)
     metrics_list = metrics_list.mean(axis=0) # 8x2
     return metrics_list
@@ -105,7 +102,7 @@ def test_single_volume(image, label, net, classes, patch_size=[256, 256], test_s
             prediction = out.cpu().detach().numpy()
     metric_list = []
     for i in range(1, classes):
-        metric_list.append(calculate_metric_percase(prediction == i, label == i, hd95=True))
+        metric_list.append(calculate_metric_percase(prediction == i, label == i))
 
     if test_save_path is not None:
         img_itk = sitk.GetImageFromArray(image.astype(np.float32))
