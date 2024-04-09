@@ -45,11 +45,11 @@ We provide the pretrained models in the tiny and base versions of AgileFormer, a
 
 | task  | model size | resolution | DSC (%) | config | pretrained weights |
 | :---: | :---: | :---: | :---: | :---: |:---: |
-| Synapse multi-organ segmentation | Tiny | 224x224 | 83.59 | [config](configs/agileFormer_lite.yaml) | |
-| Synapse multi-organ segmentation | Base | 224x224 | 85.74 | [config](configs/agileFormer_base.yaml) | [Google Drive](https://drive.google.com/file/d/1yGPZ2M2zJGhl-FVeQ9dGAYG9G_swNCAC/view?usp=sharing) / [One Drive](https://gowustl-my.sharepoint.com/:u:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/model_base_w_DS.pth?csf=1&web=1&e=1vAej1) |
-| ACDC cardiac segmentation | Tiny | 224x224 | 91.76 | [config](configs/agileFormer_lite.yaml) | |
-| ACDC cardiac segmentation | Base | 224x224 | 92.55 | [config](configs/agileFormer_base.yaml) | |
-| Decathlon brain tumor segmentation | Tiny | 96x96x96 | 85.7 | [config](configs/agileFormer_lite.yaml) | |
+| Synapse multi-organ | Tiny | 224x224 | 83.59 | [config](configs/agileFormer_lite.yaml) | |
+| Synapse multi-organ | Base | 224x224 | 85.74 | [config](configs/agileFormer_base.yaml) | [Google Drive](https://drive.google.com/file/d/1yGPZ2M2zJGhl-FVeQ9dGAYG9G_swNCAC/view?usp=sharing) / [One Drive](https://gowustl-my.sharepoint.com/:u:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/model_base_w_DS.pth?csf=1&web=1&e=1vAej1) |
+| ACDC cardiac | Tiny | 224x224 | 91.76 | [config](configs/agileFormer_lite.yaml) | |
+| ACDC cardiac | Base | 224x224 | 92.55 | [config](configs/agileFormer_base.yaml) | |
+| Decathlon brain tumor | Tiny | 96x96x96 | 85.7 | [config](configs/agileFormer_lite.yaml) | |
 
 Put pretrained weights into folder **"pretrained_ckpt/"** under the main "AgileFormer" directory
 ```
