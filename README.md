@@ -81,11 +81,11 @@ python train.py
 - [ ] Reorganize the tentative code for easier usage.
 - [ ] Release the code for 3D segmentation.
 - [ ] Release the pretrained code for 3D segmentation.
-- [ ] Support mmcv and pytorch deformable convolution
+- [ ] Support the implementation of deformable convolution in mmcv and pytorch 
 
 ## Acknowledgements
 
-This code is developed on the top of [Swin UNet](https://github.com/HuCaoFighting/Swin-Unet) and [DAT](https://github.com/LeapLabTHU/DAT), we thank to their efficient and neat codebase. 
+This code is built on the top of [Swin UNet](https://github.com/HuCaoFighting/Swin-Unet) and [DAT](https://github.com/LeapLabTHU/DAT), we thank to their efficient and neat codebase. 
 
 ## Citation
 If you find our work is useful in your research, please consider raising a star  :star:  and citing:
