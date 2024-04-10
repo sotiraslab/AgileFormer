@@ -49,7 +49,7 @@ We provide the pretrained models in the tiny and base versions of AgileFormer, a
 
 | task  | model size | resolution | DSC (%) | config | pretrained weights |
 | :---: | :---: | :---: | :---: | :---: |:---: |
-| Synapse multi-organ | Tiny | 224x224 | 83.59 | [config](configs/agileFormer_lite.yaml) | [GoogleDrive](https://drive.google.com/drive/folders/1dsv_dyStoFJlAuW1MjxlJvPklS4sb9nO?usp=sharing) / [OneDrive](https://gowustl-my.sharepoint.com/:f:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/Synapse?csf=1&web=1&e=9ZG6nc) |
+| Synapse multi-organ | Tiny | 224x224 | 83.59 | [config](configs/agileFormer_tiny_synapse_pretrained.yaml) | [GoogleDrive](https://drive.google.com/drive/folders/1dsv_dyStoFJlAuW1MjxlJvPklS4sb9nO?usp=sharing) / [OneDrive](https://gowustl-my.sharepoint.com/:f:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/Synapse?csf=1&web=1&e=9ZG6nc) |
 | Synapse multi-organ | Base | 224x224 | 85.74 | [config](configs/agileFormer_base_synapse_pretrained.yaml) | [GoogleDrive](https://drive.google.com/drive/folders/1dsv_dyStoFJlAuW1MjxlJvPklS4sb9nO?usp=sharing) / [OneDrive](https://gowustl-my.sharepoint.com/:f:/r/personal/peijie_qiu_wustl_edu/Documents/AgileFormer_pretrained_ckpt/Synapse?csf=1&web=1&e=9ZG6nc) |
 | ACDC cardiac | Tiny | 224x224 | 91.76 | [config](configs/agileFormer_lite.yaml) | |
 | ACDC cardiac | Base | 224x224 | 92.55 | [config](configs/agileFormer_base.yaml) | |
