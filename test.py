@@ -60,7 +60,17 @@ def inference(args, model, test_save_path=None):
 
 
 if __name__ == "__main__":
-    save_dir = join(args.save_dir, args.dataset)
+    config = get_config(args.cfg)
+    args.img_size = int(config.MODEL.Params.img_size)
+   
+    if "tiny" in config.MODEL.PRETRAIN_CKPT:
+        model_size = "tiny"
+    elif "base" in config.MODEL.PRETRAIN_CKPT:
+        model_size = "base"
+    else:
+        raise Exception("not implemented yet")
+
+    save_dir = join(args.save_dir, args.dataset, model_size)
     maybe_mkdir_p(save_dir)
     args.logger = get_logger(join(save_dir, "test_info.log"))
     
@@ -89,10 +99,6 @@ if __name__ == "__main__":
             },
         }
     args.dataset_config = dataset_config
-
-    args.img_size = 224
-    config = get_config(args.cfg)
-
     net = ViT_seg(config, num_classes=args.num_classes).cuda()
 
     msg = net.load_state_dict(torch.load(config.MODEL.PRETRAIN_CKPT))

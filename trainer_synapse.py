@@ -2,11 +2,8 @@ import logging
 import os
 import random
 import sys
-import time
-import numpy as np
 import torch
 import torch.nn as nn
-import torch.optim as optim
 from torch.nn.modules.loss import CrossEntropyLoss
 from torch.utils.data import DataLoader
 from tqdm import tqdm
@@ -47,10 +44,11 @@ def trainer_synapse(args, model, snapshot_path):
     optimizer = build_optimizer(args, model)
     if not args.lr_scheduler in ['const', 'exponential']:
         lr_scheduler = build_scheduler(args, optimizer, len(trainloader))
-   
+    
     iter_num = 0
     max_epoch = args.max_epochs
     max_iterations = args.max_epochs * len(trainloader)  # max_epoch = max_iterations // len(trainloader) + 1
+    lowest_train_loss = float('inf')
     logging.info("{} iterations per epoch. {} max iterations ".format(len(trainloader), max_iterations))
     iterator = tqdm(range(max_epoch), ncols=70)
     for epoch_num in iterator:
@@ -86,6 +84,11 @@ def trainer_synapse(args, model, snapshot_path):
             if iter_num % 20 == 0:
                 memory_used = torch.cuda.max_memory_allocated() / (1024.0 * 1024.0)
                 logging.info('iteration %d : loss : %f, loss_ce: %f, loss_dice: %f, mem: %.0fMB' % (iter_num, loss.item(), loss_ce.item(), loss_dice.item(), memory_used))
+        
+        if epoch_loss < lowest_train_loss:
+            lowest_train_loss = epoch_loss
+            save_mode_path = os.path.join(snapshot_path, 'best_train_model.pth')
+            torch.save(model.state_dict(), save_mode_path)
 
         if epoch_num >= max_epoch - 1:
             # We only use the last checkpoint for inference

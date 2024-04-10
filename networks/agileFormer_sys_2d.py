@@ -4,7 +4,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 from timm.models.layers import DropPath, to_2tuple
-# from mmcv.ops import DeformConv2dPack
 from .blocks_2d import *
 from .deform_ops import DeformConv2d
 from .nat_2d import NeighborhoodAttention2D
@@ -182,7 +181,7 @@ class AgileFormerSys2D(nn.Module):
                  deep_supervision=False,
                  **kwargs):
         super().__init__()
-
+      
         self.num_classes = num_classes
         self.deep_supervision = deep_supervision
     
@@ -333,13 +332,13 @@ class AgileFormerSys2D(nn.Module):
                             if self.state_dict()[new_state_key].shape == state_value.shape:
                                 new_state_dict[new_state_key] = state_value
                             else:
-                                print(state_key)
+                                pass
                         except:
-                            print(state_key)
+                            pass
                 else:
-                    print(state_key)
+                    pass
             else:
-                print(state_key)
+                pass
 
         msg = self.load_state_dict(new_state_dict, strict=False)
         return msg
