@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 try:
-    raise Exception("not work")
+    # raise Exception("not work")
     from tvdcn.ops import PackedDeformConv2d, PackedDeformConv3d
     print("tvdcn is installed, using it for deformable convolution")
     
@@ -34,7 +34,7 @@ try:
             return super().forward(x)
 except:
     try:
-        raise Exception("not work")
+        # raise Exception("not work")
         from mmcv.ops import DeformConv2dPack
         print("tvdcn is not installed, using mmcv for deformable convolution")
         class DeformConv2d(DeformConv2dPack):
