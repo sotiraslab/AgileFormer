@@ -34,7 +34,7 @@ try:
             return super().forward(x)
 except:
     try:
-        raise Exception("not work")
+        # raise Exception("not work")
         from mmcv.ops import DeformConv2dPack
         print("tvdcn is not installed, using mmcv for deformable convolution")
         class DeformConv2d(DeformConv2dPack):
