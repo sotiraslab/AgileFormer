@@ -104,6 +104,6 @@ if __name__ == "__main__":
     msg = net.load_state_dict(torch.load(config.MODEL.PRETRAIN_CKPT))
     args.logger.info(msg)
 
-    # args.logger.info("Testing Started ...")
-    # inference(args, net, save_dir)
-    # args.logger.info("Testing Finished !")
+    args.logger.info("Testing Started ...")
+    inference(args, net, save_dir)
+    args.logger.info("Testing Finished !")
