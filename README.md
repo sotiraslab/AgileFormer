@@ -1,6 +1,6 @@
 # AgileFormer
 This repository contains official implementation for the paper titled "AgileFormer: Spatially Agile Transformer UNet for Medical Image Segmentation" 
-[![paper](https://img.shields.io/badge/arXiv-Paper-brightgreen)]([https://arxiv.org/abs/2102.02808](https://arxiv.org/abs/2404.00122))
+[![paper](https://img.shields.io/badge/arXiv-Paper-brightgreen)](https://arxiv.org/abs/2404.00122)
 
 ## News :fire:
 - **April 12, 2024:** The code for 2D segmentation is ready to run. Welcome to evaluate the pretrained models on Synapse dataset.
