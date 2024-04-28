@@ -68,7 +68,7 @@ python test.py --cfg [pretrained_config_file in configs]
 ```
 For example, for Synapse base model, run the following command:
 ```
-python test.py --cfg configs/agileFormer_base_synapse_pretrained.yaml
+python test.py --cfg configs/agileFormer_base_synapse_pretrained_w_DS.yaml
 ```
 
 ## 4. Train From Scratch 
