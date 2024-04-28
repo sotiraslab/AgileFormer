@@ -32,7 +32,7 @@ parser.add_argument('--deterministic', type=int,  default=1,
                     help='whether use deterministic training')
 parser.add_argument('--optimizer', type=str,  default='AdamW',
                     help='the choice of optimizer')
-parser.add_argument('--base_lr', type=float,  default=3e-4,
+parser.add_argument('--base_lr', type=float,  default=2e-4,
                     help='segmentation network learning rate')
 parser.add_argument('--weight_decay', type=float,  default=1e-4,
                     help='weight decay')
