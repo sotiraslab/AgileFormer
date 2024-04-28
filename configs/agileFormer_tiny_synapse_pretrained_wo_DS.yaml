@@ -1,5 +1,5 @@
 MODEL:
-  PRETRAIN_CKPT: "./pretrained_ckpt/Synapse/model_tiny_w_DS.pth"
+  PRETRAIN_CKPT: "./pretrained_ckpt/Synapse/model_tiny_wo_DS.pth"
   Params:
     img_size: 224
     patch_size: 4
@@ -14,7 +14,7 @@ MODEL:
     window_sizes: [7, 7, 7, 7]
     groups: [1, 2, 4, 8]
     encoder_pos_layers: [-1]
-    decoder_pos_layers: [-1]
+    decoder_pos_layers: [1, 2, 3]
     use_pes: [False, False, False, False]
     dwc_pes: [False, False, False, False]
     strides: [8, 4, 2, 1]
