@@ -89,7 +89,7 @@ python train.py --cfg [config_file in configs]
 ```
 For example, for training Synapse tiny model, run the following command:
 ```
-python train.py --cfg configs/agileFormer_tiny.yaml
+python train.py --cfg configs/agileFormer_tiny.yaml --lr 2e-4
 ```
 
 ## Future Updates
