@@ -7,7 +7,7 @@ This repository contains official implementation for the paper titled "AgileForm
 - **April 12, 2024:** The code for 2D segmentation is ready to run. Welcome to evaluate the pretrained models on Synapse dataset.
 - **April 18, 2024:** The code has supported the implementation of deformable convolution in mmcv and plain PyTorch. But this requires to retrain the model by your own. 
 
-![Abstract](figures/graphic_abstract.jpg)
+![Abstract](figures/abstract.jpg)
 ![Performance](figures/performance.jpg)
 
 <img align="right" width="50%" height="100%" src="figures/roadmap.jpg">
