@@ -3,7 +3,7 @@ This repository contains official implementation for the paper titled "AgileForm
 [![paper](https://img.shields.io/badge/arXiv-Paper-brightgreen)](https://arxiv.org/abs/2404.00122)
 
 ## News :fire:
-- **July 11, 2024:** We set a new state-of-the-art performance for 3D multi-organ segmentation. 
+- **July 11, 2024:** We set a new state-of-the-art performance for 3D multi-organ segmentation on Synapse. 
 - **April 12, 2024:** The code for 2D segmentation is ready to run. Welcome to evaluate the pretrained models on Synapse dataset.
 - **April 18, 2024:** The code has supported the implementation of deformable convolution in mmcv and plain PyTorch. But this requires to retrain the model by your own. 
 
